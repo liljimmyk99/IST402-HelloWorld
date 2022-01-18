@@ -1,6 +1,8 @@
 import { html, css, LitElement } from 'lit';
 
 export class HelloWorld extends LitElement {
+
+  // Generates CSS for the HTML content in the render() function.
   static get styles() {
     return css`
       :host {
@@ -17,6 +19,7 @@ export class HelloWorld extends LitElement {
     `;
   }
 
+  // Initializes the properties of the hello-world element.
   static get properties() {
     return {
       title: { type: String },
@@ -25,12 +28,14 @@ export class HelloWorld extends LitElement {
     };
   }
 
+  // Sets the default values for hello-world's properties.
   constructor() {
     super();
     this.title = 'Hey there';
     this.counter = 5;
   }
 
+  // Adds 1 to this.counter
   __increment() {
     this.counter += 1;
     if(this.counter >= 10){
@@ -38,6 +43,7 @@ export class HelloWorld extends LitElement {
     }
   }
 
+  // Subtracts 1 from this.counter until 0 threshold
   __decrement() {
     if (this.counter <= 0){
     } else {
@@ -49,6 +55,7 @@ export class HelloWorld extends LitElement {
     
   }
 
+  // Renders HTML on the page within the hello-world tag.
   render() {
     return html`
       <h2>${this.title} Nr. ${this.counter}!</h2>
